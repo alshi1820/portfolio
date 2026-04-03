@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+    <nav>
+        <li><a href = '../index.html'>Home</a></li>
+        <li><a href = '../projects/index.html'>projects home</a></li>
+        <li><a href = '../contact/index.html'>contact home</a></li>
+        <li><a href = '../style.css'>css</a></li>
+        <li><a href = '../images/lovelyface.jpg'>lovely face</a></li>
+        <li><a href = '../resume.html'>Resume</a></li>
+        <li><a href = "https://github.com/alshi1820" target="_blank">GitHub Profile</a></li>
+    </nav>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +16,22 @@
 </head>
 <body>
     <h1>contact</h1>
-    <nav>
-        <a href = 'index.html'>Home</a>
-        <a href = 'projects/index.html'>projects home</a>
-        <a href = 'contact/index.html'>contact home</a>
-        <a href = 'style.css'>css</a>
-        <a href = 'images/lovelyface.jpg'>lovely face</a>
-        <a target = "https://github.com/alshi1820"></a>
-    </nav>
+    <form action = "mainto:alshi@ucsd.edu" method = "POST" enctype = "text/plain">
+        <label>
+            Email Address:
+            <input name="alshi@ucsd.edu" type="email">
+        </label>
+        <label>
+            Subject:
+            <input name="subject">
+        </label>
+        <label>
+            Message:
+            <textarea name="body"></textarea>
+        </label>
+            
+        <button>Submit</button>
+       
+    </form>
 </body>
 </html>
