@@ -60,9 +60,9 @@ const select = document.querySelector('.color-scheme select');
 select.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
     if (value === "auto") {
-        document.documentElement.removeAttribute('data-theme');
+        document.documentElement.removeAttribute('color-scheme');
     } else {
-        document.documentElement.setAttribute('data-theme', value);
+        document.documentElement.setAttribute('scolor-scheme', value);
     }
 });
 
