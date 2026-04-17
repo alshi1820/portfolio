@@ -43,7 +43,9 @@ nav a {
 nav a.current {
     border-bottom-width:0.4em;
     border-bottom-style: solid;
+    border-bottom-color: var(--color-accent);
     padding-bottom: .1em
+    
 }
 html {
     --color-accent: oklch(65% 50% 0);
