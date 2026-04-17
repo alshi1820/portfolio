@@ -26,7 +26,7 @@ for (let p of pages) {
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
-    if (url.startsWith('http')) {
+    if (a.host !== location.host ) {
         a.target = "_blank";
     }
     
