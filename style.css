@@ -9,6 +9,7 @@ body {
     margin-inline:auto;
     padding:8px;
     margin-inline: max(1em, (100% - 100ch) / 2);
+    color-scheme: light dark;
 }
 html {
     display: block;
