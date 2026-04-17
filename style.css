@@ -43,7 +43,6 @@ nav a {
 nav a.current {
     border-bottom-width:0.4em;
     border-bottom-style: solid;
-    border-bottom-color: oklch(90% 3% 200);
     padding-bottom: .1em
 }
 html {
