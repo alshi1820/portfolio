@@ -10,4 +10,16 @@ if (currentLink) {
   // or if (currentLink !== undefined)
   currentLink?.classList.add('current');
 }
-
+let pages = [
+  { url: 'contact/index.html', title: 'Contact' },
+  { url: 'projects/index.html', title: 'Projects' },
+  { url: 'index.html', title: 'Home' },
+  { url: 'resume.html', title: 'Resume' }
+];
+let nav = document.createElement('nav');
+document.body.prepend(nav);
+for (let p of pages) {
+  let url = p.url;
+  let title = p.title;
+  nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
+}
