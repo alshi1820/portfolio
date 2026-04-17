@@ -50,7 +50,8 @@ nav a.current {
 
 nav a:hover {
     --color-accent: oklch(65% 50% 0);
-    accent-color: var(--color-accent)
+    accent-color: var(--color-accent);
+
     border-bottom-width:0.4em;
     border-bottom-style: solid;
     border-bottom-color: var(--color-accent);
