@@ -16,6 +16,7 @@ let pages = [
 ];
 let nav = document.createElement('nav');
 document.body.prepend(nav);
+
 for (let p of pages) {
     let url = p.url; 
     url = !url.startsWith('http') ? BASE_PATH + url : url;
