@@ -27,11 +27,7 @@ for (let p of pages) {
     a.href = url;
     a.textContent = title;
     
-    if (a.host === location.host &&
-        (
-            a.pathname === location.pathname ||
-            (a.pathname.endsWith('index.html') && location.pathname.endsWith('/'))
-        )
+    if (a.host === location.host && a.pathname === location.pathname 
     ) {
         a.classList.add('current');
     }
