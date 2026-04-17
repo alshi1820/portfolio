@@ -6,7 +6,7 @@ function $$(selector, context = document) {
 let navLinks = $$("nav a");
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
     ? "/"                  // Local server
-    : "/website/";  
+    : "/portfolio/";    
 
 let currentLink = navLinks.find(
     (a) => a.host === location.host && a.pathname === location.pathname,
@@ -15,10 +15,10 @@ let currentLink = navLinks.find(
 currentLink?.classList.add('current');
 
 let pages = [
-    { url: 'contact/', title: 'Contact' },
-    { url: 'projects/', title: 'Projects' },
-    { url: '', title: 'Home' },
-    { url: 'resume/', title: 'Resume' }
+    { url: 'contact/index.html', title: 'Contact' },
+    { url: 'projects/index.html', title: 'Projects' },
+    { url: 'index.html', title: 'Home' },
+    { url: 'resume/index.html', title: 'Resume' }
 ];
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -30,7 +30,7 @@ for (let p of pages) {
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
-    nav.append(a);
+    
     if (a.host === location.host && a.pathname === location.pathname) {
         a.classList.add('current');
     }
@@ -38,6 +38,7 @@ for (let p of pages) {
         'current',
         a.host === location.host && a.pathname === location.pathname,
     );
+    nav.append(a);
     
 }
 
