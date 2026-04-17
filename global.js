@@ -26,15 +26,16 @@ for (let p of pages) {
     let url = p.url; 
     url = !url.startsWith('http') ? BASE_PATH + url : url;
     let title = p.title;
+    
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
-    
+    nav.append(a);
     
     a.classList.toggle(
         'current',
         a.host === location.host && a.pathname === location.pathname,
     );
-    nav.append(a);
+    
 }
 
