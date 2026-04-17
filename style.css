@@ -29,6 +29,7 @@ nav {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: oklch(80% 3% 200);
+    --border-color: oklch(50% 10% 200 / 40%);
 }
 nav a {
     flex:1;
