@@ -59,7 +59,11 @@ document.body.insertAdjacentHTML(
 const select = document.querySelector('.color-scheme select');
 select.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
-    document.documentElement.style.setProperty('color-scheme', 'dark');
+    if (value === "auto") {
+        document.documentElement.removeAttribute('data-theme');
+    } else {
+        document.documentElement.setAttribute('data-theme', value);
+    }
 });
 
 
