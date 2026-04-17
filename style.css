@@ -15,7 +15,7 @@ html {
     margin:8px;
     margin-inline:auto;
     padding:8px;
-    color-scheme: light dark;
+    color-scheme: dark;
     --color-accent: oklch(65% 50% 0);
     accent-color: var(--color-accent)
 }
@@ -154,6 +154,9 @@ h6 {
     top: 1rem;
     right: 1rem;
     font-size: 80%;
+
+    background: canvas;
+    color: canvastext; 
 }
 input,
 textarea,
