@@ -149,3 +149,15 @@ h6 {
 .resume p.date {
     color:darkgrey;
 }
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+input,
+textarea,
+button,
+select {
+    font: inherit;
+}
