@@ -43,7 +43,7 @@ nav a {
 nav a.current {
     border-bottom-width:0.4em;
     border-bottom-style: solid;
-    border-bottom-color: var(--color-accent);
+    border-bottom-color: var(--border-color);
     padding-bottom: .1em
     
 }
