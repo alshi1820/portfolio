@@ -164,14 +164,3 @@ button,
 select {
     font: inherit;
 }
-/* Light mode */
-html[style*="light"] {
-  background: white;
-  color: black;
-}
-
-/* Dark mode */
-html[style*="dark"] {
-  background: #111;
-  color: white;
-}
