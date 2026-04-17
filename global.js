@@ -9,10 +9,11 @@ const BASE_PATH =
     : "/portfolio/";
 
 let pages = [
-  { url: 'contact/index.html', title: 'Contact' },
-  { url: 'projects/index.html', title: 'Projects' },
-  { url: 'index.html', title: 'Home' },
-  { url: 'resume/index.html', title: 'Resume' }
+    { url: 'index.html', title: 'Home' },
+    { url: 'contact/index.html', title: 'Contact' },
+    { url: 'projects/index.html', title: 'Projects' },
+    { url: 'resume/index.html', title: 'Resume' },
+    { url: "https://github.com/alshi1820", title: 'GitHub' }
 ];
 let nav = document.createElement('nav');
 document.body.prepend(nav);
