@@ -30,4 +30,10 @@ for (let p of pages) {
     : "/website/";         // GitHub Pages repo name
     url = !url.startsWith('http') ? BASE_PATH + url : url;
 }
-
+if (a.host === location.host && a.pathname === location.pathname) {
+  a.classList.add('current');
+}
+a.classList.toggle(
+  'current',
+  a.host === location.host && a.pathname === location.pathname,
+);
