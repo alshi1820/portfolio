@@ -3,23 +3,22 @@ console.log('IT’S ALIVE!');
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-        ? "/"                  // Local server
-        : "/website/";  
 let navLinks = $$("nav a");
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+    ? "/"                  // Local server
+    : "/website/";  
+
 let currentLink = navLinks.find(
-  (a) => a.host === location.host && a.pathname === location.pathname,
+    (a) => a.host === location.host && a.pathname === location.pathname,
 );
 
-if (currentLink) {
-  // or if (currentLink !== undefined)
-  currentLink?.classList.add('current');
-}
+currentLink?.classList.add('current');
+
 let pages = [
-  { url: 'contact/index.html', title: 'Contact' },
-  { url: 'projects/index.html', title: 'Projects' },
-  { url: 'index.html', title: 'Home' },
-  { url: 'resume.html', title: 'Resume' }
+    { url: 'contact/', title: 'Contact' },
+    { url: 'projects/', title: 'Projects' },
+    { url: '', title: 'Home' },
+    { url: 'resume/', title: 'Resume' }
 ];
 let nav = document.createElement('nav');
 document.body.prepend(nav);
