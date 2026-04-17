@@ -15,7 +15,7 @@ html {
     margin:8px;
     margin-inline:auto;
     padding:8px;
-    
+    color-scheme: light dark;
     --color-accent: oklch(65% 50% 0);
     accent-color: var(--color-accent)
 }
@@ -163,4 +163,15 @@ textarea,
 button,
 select {
     font: inherit;
+}
+/* Light mode */
+html[style*="light"] {
+  background: white;
+  color: black;
+}
+
+/* Dark mode */
+html[style*="dark"] {
+  background: #111;
+  color: white;
 }
