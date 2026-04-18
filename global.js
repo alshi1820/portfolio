@@ -57,19 +57,13 @@ document.body.insertAdjacentHTML(
 	</label>`,
 );
 
-// );
-// const select = document.querySelector('.color-scheme select');
+const select = document.querySelector('.color-scheme select');
+select.addEventListener('input', function (event) {
+    console.log('color scheme changed to', event.target.value);
+    document.documentElement.style.setProperty('color-scheme', event.target.value,'important');
+    localStorage.colorScheme = event.target.value;
 
-//     if (localStorage.colorScheme){  
-//         select.value=localStorage.colorScheme;
-        
-//     }
-// select.addEventListener('input', function (event) {
-//     console.log('color scheme changed to', event.target.value);
-//     document.documentElement.style.setProperty('color-scheme', event.target.value,'important');
-//     localStorage.colorScheme = event.target.value;
-
-// });
+});
 
 
 // const select = document.querySelector('.color-scheme select');
@@ -93,26 +87,26 @@ document.body.insertAdjacentHTML(
 // });
 
 
-const select = document.querySelector('.color-scheme select');
+// const select = document.querySelector('.color-scheme select');
 
-// Apply saved theme on load
-const saved = localStorage.getItem('colorScheme');
+// // Apply saved theme on load
+// const saved = localStorage.getItem('colorScheme');
 
-if (saved) {
-    document.documentElement.dataset.theme = saved;
-}
+// if (saved) {
+//     document.documentElement.dataset.theme = saved;
+// }
 
-// Make dropdown match saved value
-if (select && saved) {
-    select.value = saved;
-}
+// // Make dropdown match saved value
+// if (select && saved) {
+//     select.value = saved;
+// }
 
-// Save + apply on change
-select.addEventListener('input', (event) => {
-    const value = event.target.value;
+// // Save + apply on change
+// select.addEventListener('input', (event) => {
+//     const value = event.target.value;
 
-    console.log('color scheme changed to', value);
+//     console.log('color scheme changed to', value);
 
-    document.documentElement.dataset.theme = value;
-    localStorage.setItem('colorScheme', value);
-});
+//     document.documentElement.dataset.theme = value;
+//     localStorage.setItem('colorScheme', value);
+// });
