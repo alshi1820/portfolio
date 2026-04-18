@@ -41,27 +41,23 @@ for (let p of pages) {
 
     nav.append(a);
     
-}
-const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
-const autoLabel = prefersDark ? "Automatic (Dark)" : "Automatic (Light)";
+};
+
 document.body.insertAdjacentHTML(
-  'afterbegin',
-  `
-	<label class="color-scheme">
-		Theme:
-		<select>
-			<option value="light dark">${autoLabel}</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-		</select>
-	</label>`,
+    'afterbegin',
+    `
+        <label class="color-scheme">
+            Theme:
+            <select>
+                <option value="light dark">Automatic</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </label>`,
 );
 
-const select = document.querySelector('.color-scheme select');
-select.addEventListener('input', function (event) {
-    console.log('color scheme changed to', event.target.value);
-    document.documentElement.style.setProperty('color-scheme', event.target.value,'important');
-  
 
-});
+
+
+
 
