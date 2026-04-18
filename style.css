@@ -151,6 +151,8 @@ h6 {
 }
 .color-scheme {
     position: absolute;
+    top:1rem;
+    right:1rem;
     font-size: 80%;
     background: canvas;
     color: canvastext; 
