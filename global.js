@@ -56,44 +56,19 @@ document.body.insertAdjacentHTML(
         </label>`,
 );
 
-// const select = document.querySelector('.color-scheme select');
-// select.addEventListener('input', function (event) {
-//     console.log('color scheme changed to', event.target.value);
-//     document.documentElement.style.setProperty('color-scheme', event.target.value);
-// });
+
+
+
 
 
 const select = document.querySelector('.color-scheme select');
-
-// 1. Apply saved preference on page load
-if ("colorScheme" in localStorage) {
-    const savedScheme = localStorage.colorScheme;
-
-    // apply to page
-    document.documentElement.style.setProperty(
-        'color-scheme',
-        savedScheme
-    );
-
-    // sync dropdown UI
-    select.value = savedScheme;
-}
-
-// 2. Save + apply when user changes it
-select.addEventListener('input', (event) => {
-    const scheme = event.target.value;
-
-    console.log('color scheme changed to', scheme);
-
-    // apply immediately
-    document.documentElement.style.setProperty(
-        'color-scheme',
-        scheme
-    );
-
-    // persist it
-    localStorage.colorScheme = scheme;
+select.addEventListener('input', function (event) {
+    console.log('color scheme changed to', event.target.value);
+    document.documentElement.style.setProperty('color-scheme', event.target.value);
 });
+
+
+
 
 
 
