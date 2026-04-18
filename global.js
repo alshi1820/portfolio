@@ -56,24 +56,63 @@ document.body.insertAdjacentHTML(
 		</select>
 	</label>`,
 );
+
+// );
+// const select = document.querySelector('.color-scheme select');
+
+//     if (localStorage.colorScheme){  
+//         select.value=localStorage.colorScheme;
+        
+//     }
+// select.addEventListener('input', function (event) {
+//     console.log('color scheme changed to', event.target.value);
+//     document.documentElement.style.setProperty('color-scheme', event.target.value,'important');
+//     localStorage.colorScheme = event.target.value;
+
+// });
+
+
+// const select = document.querySelector('.color-scheme select');
+
+// // Apply saved theme on load
+// if ("colorScheme" in localStorage) {
+//     const saved = localStorage.colorScheme;
+//     document.documentElement.dataset.theme = saved;
+//     select.value = saved;
+// }
+
+// // Save + apply on change
+// select.addEventListener('input', function (event) {
+//     document.documentElement.style.setProperty('color-scheme', event.target.value,'important');
+//     const value = event.target.value;
+//     console.log('color scheme changed to', value);
+
+//     document.documentElement.dataset.theme = value;
+//     localStorage.colorScheme = value;
+    
+// });
+
+
 const select = document.querySelector('.color-scheme select');
 
 // Apply saved theme on load
-if ("colorScheme" in localStorage) {
-    const saved = localStorage.colorScheme;
+const saved = localStorage.getItem('colorScheme');
+
+if (saved) {
     document.documentElement.dataset.theme = saved;
+}
+
+// Make dropdown match saved value
+if (select && saved) {
     select.value = saved;
 }
 
 // Save + apply on change
-select.addEventListener('input', function (event) {
+select.addEventListener('input', (event) => {
     const value = event.target.value;
+
     console.log('color scheme changed to', value);
 
     document.documentElement.dataset.theme = value;
-    localStorage.colorScheme = value;
+    localStorage.setItem('colorScheme', value);
 });
-
-
-
-
