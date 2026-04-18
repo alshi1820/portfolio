@@ -58,10 +58,9 @@ document.body.insertAdjacentHTML(
 );
 const select = document.querySelector('.color-scheme select');
 
-    if ('color-scheme' in localStorage){
-        const saved = localStorage.colorScheme;
+    if (localStorage.colorScheme){  
         select.value=localStorage.colorScheme;
-        select.value=saved;
+        
     }
 select.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
