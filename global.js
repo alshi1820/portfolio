@@ -42,8 +42,8 @@ for (let p of pages) {
     nav.append(a);
     
 }
-const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
-const autoLabel = prefersDark ? "Automatic (Dark)" : "Automatic (Light)";
+// const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
+// const autoLabel = prefersDark ? "Automatic (Dark)" : "Automatic (Light)";
 document.body.insertAdjacentHTML(
   'afterbegin',
   `
@@ -61,7 +61,7 @@ const select = document.querySelector('.color-scheme select');
 select.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
     document.documentElement.style.setProperty('color-scheme', event.target.value,'important');
-    // localStorage.colorScheme = event.target.value;
+    localStorage.colorScheme = event.target.value;
 
 });
 
