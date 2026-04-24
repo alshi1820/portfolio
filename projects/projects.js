@@ -5,7 +5,7 @@ renderProjects(projects, projectsContainer, 'h2');
 const title = document.querySelector('.projects-title');
 
 if (title && Array.isArray(projects)) {
-  title.textContent = `${projects.length} Projects`;
+  title.textContent = projects.length;
 }
 
 
