@@ -2,7 +2,7 @@
     {
         "title": "Project 1 - DSC 106",
         "year": "2026",
-        "image": "/portfolio/iamges/proj1.png",
+        "image": "../iamges/proj1.png",
         "description": "This bar plot compares the price per calorie of items from 3 stores (Target, Walmart, and WholeFoods)."
     },
     {
