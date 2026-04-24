@@ -22,19 +22,25 @@ try {
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
-export function renderProjects(project, containerElement, headingLevel = 'h2') {
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
     if (!containerElement){
         console.error('No valid container provided');
+        return;
     }
     containerElement.innerHTML = '';
-    if (!project || project.length===0){
+    if (!projects || projects.length === 0){
         containerElement.innerHTML = '<p>No projects available yet.</p>';
         return;
     }
-    for (const proj of project){
+    const validHeadings = ['h1','h2','h3','h4','h5','h6'];
+    if (!validHeadings.includes(headingLevel)){
+        console.warn('Inavlid headingLevel, defuaulting to h2');
+        headingLevel = 'h2';
+    }
+    for (const proj of projects){
         const article = document.createElement('article');
         article.innerHTML = `
-            <h3>${proj.title ? proj.title : 'Untitled Project'}</h3>
+            <h${headingLevel}${proj.title ? proj.title : 'Untitled Project'}</${headingLevel}>
             <img src="${proj.image ? proj.image : 'images/placeholder.png'}" alt="${proj.title ? proj.title : 'Project image'}">
             <p>${proj.description ? proj.description : 'No description available.'}</p>
         `;
