@@ -4,9 +4,9 @@ const latestProjects = projects.slice(0, 3);
 const projectsContainer = document.querySelector('.projects');
 renderProjects(latestProjects, projectsContainer, 'h2');
 const githubData = await fetchGithubData('alshi1820');
-const profileStats = document.querySelector('#profile-stats');
-if (profileStats) {
-    profileStats.innerHTML = `
+const dl = document.querySelector('#profile-stats dl');
+if (dl && githubData) {
+    dl.innerHTML = `
         <dl>
           <dt>Public Repos:</dt><dd>${githubData.public_repos}</dd>
           <dt>Public Gists:</dt><dd>${githubData.public_gists}</dd>
@@ -14,5 +14,7 @@ if (profileStats) {
           <dt>Following:</dt><dd>${githubData.following}</dd>
         </dl>
     `;
+} else {
+    console.warn('GitHub data missing or dl not found');
 }
 
