@@ -20,7 +20,7 @@ try {
 
 // original lines (kept exactly)
 const projectsContainer = document.querySelector('.projects');
-
+renderProjects(projects, projectsContainer, 'h2');
 
 export function renderProjects(project, containerElement, headingLevel = 'h2') {
     if (!containerElement){
