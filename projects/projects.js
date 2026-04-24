@@ -1,7 +1,13 @@
 import { fetchJSON, renderProjects } from '../global.js';
 const projects = await fetchJSON('../lib/projects.json');
+const title = document.querySelector('.projects-title');
+
+if (title && Array.isArray(projects)) {
+  title.textContent = `(${projects.length}) Projects`;
+}
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
+
 // let projects = [];
 
 // try {
