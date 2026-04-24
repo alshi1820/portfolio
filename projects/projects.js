@@ -5,6 +5,7 @@ let projects = [];
 try {
   // original line (kept exactly)
   projects = await fetchJSON('../lib/projects.json');
+  console.log('PROJECTS:'.projects);
 
   // extra validation (added)
   if (!Array.isArray(projects)) {
