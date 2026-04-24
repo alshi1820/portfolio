@@ -13,7 +13,8 @@ let pages = [
     { url: 'contact/index.html', title: 'Contact' },
     { url: 'projects/index.html', title: 'Projects' },
     { url: 'resume/index.html', title: 'Resume' },
-    { url: "https://github.com/alshi1820", title: 'GitHub' }
+    { url: "https://github.com/alshi1820", title: 'GitHub' },
+    { url: 'lib/projects.js', title: 'Projects JSON'}
 ];
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -81,6 +82,8 @@ export async function fetchJSON(url) {
     if (!response.ok) {
         throw new Error(`Failed to fetch projects: ${response.statusText}`);
     }
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
   }
