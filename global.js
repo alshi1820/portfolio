@@ -105,7 +105,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     for (const proj of projects){
         const article = document.createElement('article');
         article.innerHTML = `
-            <h${headingLevel}${proj.title ? proj.title : 'Untitled Project'}</${headingLevel}>
+            <h${headingLevel}>${proj.title ? proj.title : 'Untitled Project'}</${headingLevel}>
             <img src="${proj.image ? proj.image : 'images/placeholder.png'}" alt="${proj.title ? proj.title : 'Project image'}">
             <p>${proj.description ? proj.description : 'No description available.'}</p>
         `;
