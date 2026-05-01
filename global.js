@@ -107,7 +107,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         article.innerHTML = `
             <h${headingLevel}>${proj.title ? proj.title : 'Untitled Project'}</${headingLevel}>
             <img src="${proj.image ? proj.image : 'images/placeholder.png'}" alt="${proj.title ? proj.title : 'Project image'}">
-            <p>${proj.description ? proj.description : 'No description available.'}</p>
+            
             <div class="project-info">
                 <p>${proj.description ? proj.description : 'No description available.'}</p>
                 <p class="project-year">${proj.year ? proj.year : 'Unknown year'}</p>
