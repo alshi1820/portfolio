@@ -185,3 +185,13 @@ select {
   grid-row: 2;
   margin: 0;
 }
+.project-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-year {
+  color: gray;
+  font-size: 0.9em;
+  margin-top: 0.25em;
+}
