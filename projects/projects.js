@@ -35,7 +35,7 @@ arcs.forEach((arc) => {
 });
 let colors = ['gold', 'purple'];
 arcs.forEach((arc, idx) => {
-    d3.select('svg')
+    d3.select('#projects-pie-plot')
       .append('path')
       .attr('d', arc)
       .attr('fill',colors[idx]); // Fill in the attribute for fill color via indexing the colors variable
