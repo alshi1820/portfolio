@@ -13,32 +13,23 @@ let arc = d3.arc().innerRadius(0).outerRadius(50)({
   startAngle: 0,
   endAngle: 2 * Math.PI,
 });
-d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
 
 
+let data = [1, 2];
+let total = 0;
 
-// let projects = [];
+for (let d of data) {
+  total += d;
+}
+let angle = 0;
+let arcData = [];
 
-// try {
-//   // original line (kept exactly)
-//   projects = await fetchJSON('../lib/projects.json');
-//   console.log('PROJECTS:', projects);
-
-//   // extra validation (added)
-//   if (!Array.isArray(projects)) {
-//     throw new Error('Invalid JSON format: expected an array');
-//   }
-
-// } catch (error) {
-//   console.error('Error loading projects:', error);
-//   return [];
-
-//   const projectsContainer = document.querySelector('.projects');
-//   projectsContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
-// }
-
-// // original lines (kept exactly)
-// const projectsContainer = document.querySelector('.projects');
-// renderProjects(projects, projectsContainer, 'h2');
-
-
+for (let d of data) {
+  let endAngle = angle + (d / total) * 2 * Math.PI;
+  arcData.push({ startAngle: angle, endAngle });
+  angle = endAngle;
+}
+let arcs = arcData.map((d) => arcGenerator(d));
+arcs.forEach((arc) => {
+    d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
+});
