@@ -18,7 +18,7 @@ let arcData = sliceGenerator(data);
 let arcs = arcData.map(d => arcGenerator(d));
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-arcs.forEach((arc, idx) => {
+arcs.forEach((arc, index) => {
   d3.select('#projects-pie-plot')   
     .append('path')
     .attr('d', arc)
