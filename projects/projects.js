@@ -35,13 +35,13 @@ let legend = d3.select('.legend');
 
 data.forEach((d, idx) => {
   legend.append('li')
-    .attr('style', `--color:${colors(idx)}`)
+    .attr('style', `--color: ${colors(idx)}`)
     .attr('class', 'legend-item')   // ✅ add class
     .html(`
-      <span class="swatch"></span>
-      <span class="label">${d.label}</span>
-      <em>(${d.value})</em>
-    `);
+        <span class="swatch"></span>
+        <span class="label">${d.label}</span>
+        <em>(${d.value})</em>
+    `); 
 });
 
 

@@ -207,6 +207,7 @@ select {
   gap: 0.5em;
   margin-block: 1em;
   padding: 0;
+  flex: 1;
 }
 .legend li {
   display: flex;
@@ -226,7 +227,4 @@ select {
   display: flex;
   align-items: center;   
   gap: 2em;                  
-}
-.legend {
-  flex: 1;
 }
