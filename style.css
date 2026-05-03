@@ -201,3 +201,24 @@ select {
 
   overflow: visible;
 }
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.5em;
+  margin-block: 1em;
+  padding: 0;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  list-style: none;
+}
+
+.legend .swatch {
+  display: inline-block;        
+  width: 1em;
+  aspect-ratio: 1 / 1;          
+  background-color: var(--color);
+  border-radius: 0.2em;         
+}
