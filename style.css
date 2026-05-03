@@ -232,13 +232,14 @@ select {
   box-sizing: border-box;
   margin-bottom: 1em;
 }
+:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
 path {
   transition: 300ms;
   cursor: pointer;
 }
-#projects-pie-plot:has(path:hover) path:not(:hover) {
-  opacity: 0.5;
-}
+
 .selected:is(path) {
   stroke: oklch(60% 45% 0);
   stroke-width: 3px;
