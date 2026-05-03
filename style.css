@@ -222,3 +222,13 @@ select {
   background-color: var(--color);
   border-radius: 0.2em;         
 }
+/
+.container {
+  display: flex;
+  align-items: center;   
+  gap: 2em;              
+  flex-wrap: wrap;       
+}
+.legend {
+  flex: 1;
+}
