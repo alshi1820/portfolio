@@ -284,9 +284,9 @@ label.color-scheme {
 }
 
 &:has(path:hover) {
-  path:not(:hover) {
-    opacity: 0.5;
-  }
+    path:not(:hover) {
+        opacity: 0.5;
+    }
 }
 
 path {
