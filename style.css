@@ -247,3 +247,10 @@ path {
   stroke-width: 3px;
   paint-order: stroke fill;
 }
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}

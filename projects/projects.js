@@ -40,7 +40,7 @@ function renderPieChart(projectsGiven) {
     let arcData = sliceGenerator(data);
     let arcs = arcData.map(d => arcGenerator(d));
 
-  
+
     arcData.forEach((d, i) => {
         svg.append('path')
             .attr('d', arcGenerator(d))
