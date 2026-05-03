@@ -7,8 +7,7 @@ const projectsContainer = document.querySelector('.projects');
 const searchInput = document.querySelector('.searchBar');
 
 let query = '';
-let selectedIndex = -1; // index in current pie data
-let selectedYear = null; // actual year (IMPORTANT FIX)
+let selectedIndex = -1;
 
 let arcGenerator = d3.arc()
   .innerRadius(0)
@@ -18,84 +17,92 @@ let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 /* ---------------- PIE RENDER ---------------- */
 function renderPieChart(projectsGiven) {
-  let svg = d3.select('#projects-pie-plot');
-  let legend = d3.select('.legend');
+  const svg = d3.select('#projects-pie-plot');
+  const legend = d3.select('.legend');
 
   svg.selectAll('path').remove();
   legend.selectAll('li').remove();
 
-  // STEP 1: roll data by year
-  let rolledData = d3.rollups(
+  // 1. roll up by year
+  const rolledData = d3.rollups(
     projectsGiven,
-    (v) => v.length,
-    (d) => d.year
+    v => v.length,
+    d => d.year
   );
 
-  let data = rolledData.map(([year, count]) => ({
+  const data = rolledData.map(([year, count]) => ({
     label: year,
     value: count
   }));
 
-  // STEP 2: build arcs
-  let pie = d3.pie().value(d => d.value);
-  let arcData = pie(data);
+  const pie = d3.pie().value(d => d.value);
+  const arcData = pie(data);
 
   /* ---------------- DRAW PIE ---------------- */
-  arcData.forEach((d, i) => {
-    svg.append('path')
-      .attr('d', arcGenerator(d))
-      .attr('fill', colors(i))
-      .classed('selected', selectedYear === data[i].label)
-      .on('click', () => {
-        // toggle selection
-        selectedYear = selectedYear === data[i].label ? null : data[i].label;
-        selectedIndex = i;
-        updateView();
-      });
-  });
+  svg.selectAll('path')
+    .data(arcData)
+    .join('path')
+    .attr('d', arcGenerator)
+    .attr('fill', (_, i) => colors(i))
+    .attr('class', (_, i) =>
+      i === selectedIndex ? 'selected' : null
+    )
+    .on('click', (_, i) => {
+      selectedIndex = selectedIndex === i ? -1 : i;
+      updateView();
+    });
 
   /* ---------------- DRAW LEGEND ---------------- */
-  data.forEach((d, i) => {
-    legend.append('li')
-      .attr('style', `--color: ${colors(i)}`)
-      .classed('selected', selectedYear === d.label)
-      .on('click', () => {
-        selectedYear = selectedYear === d.label ? null : d.label;
-        selectedIndex = i;
-        updateView();
-      })
-      .html(`
-        <span class="swatch"></span>
-        <span class="label">${d.label}</span>
-        <em>(${d.value})</em>
-      `);
-  });
+  legend.selectAll('li')
+    .data(data)
+    .join('li')
+    .attr('style', (_, i) => `--color: ${colors(i)}`)
+    .attr('class', (_, i) =>
+      i === selectedIndex ? 'selected' : null
+    )
+    .html(d => `
+      <span class="swatch"></span>
+      <span class="label">${d.label}</span>
+      <em>(${d.value})</em>
+    `);
 }
 
-/* ---------------- MAIN UPDATE FUNCTION ---------------- */
+/* ---------------- MAIN UPDATE ---------------- */
 function updateView() {
   let filtered = projects;
 
-  /* ---------------- SEARCH FILTER ---------------- */
-  filtered = filtered.filter((project) => {
-    let values = Object.values(project).join(' ').toLowerCase();
+  // search filter
+  filtered = filtered.filter(project => {
+    const values = Object.values(project).join(' ').toLowerCase();
     return values.includes(query.toLowerCase());
   });
 
-  /* ---------------- PIE FILTER ---------------- */
-  if (selectedYear !== null) {
-    filtered = filtered.filter(p => String(p.year) === String(selectedYear));
+  // pie filter (IMPORTANT: must be applied AFTER search)
+  if (selectedIndex !== -1) {
+    const rolled = d3.rollups(
+      filtered,
+      v => v.length,
+      d => d.year
+    );
+
+    const data = rolled.map(([year]) => year);
+    const selectedYear = data[selectedIndex];
+
+    filtered = filtered.filter(p =>
+      String(p.year) === String(selectedYear)
+    );
   }
 
   renderProjects(filtered, projectsContainer, 'h2');
   renderPieChart(filtered);
 }
 
-/* ---------------- INITIAL RENDER ---------------- */
+/* ---------------- INITIAL ---------------- */
 updateView();
 
 /* ---------------- SEARCH ---------------- */
 searchInput.addEventListener('input', (event) => {
   query = event.target.value;
+  selectedIndex = -1; // optional but prevents confusion
   updateView();
 });
