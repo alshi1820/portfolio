@@ -237,8 +237,10 @@ path {
   cursor: pointer;
 }
 
-svg:has(path:hover) path:not(:hover) {
-  opacity: 0.5;
+&:has(path:hover) {
+    path:not(:hover) {
+        opacity: 0.5;
+    }
 }
 .selected:is(path) {
   stroke: oklch(60% 45% 0);
