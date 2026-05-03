@@ -74,7 +74,7 @@ function updateView() {
         let values = Object.values(project).join(' ').toLowerCase();
         return values.includes(query.toLowerCase());
     });
-    if (selectedYear !== null && selectedYear !== -1) {
+    if (selectedYear !== null) {
         filtered = filtered.filter(p => String(p.year) === String(selectedYear));
     }
 
