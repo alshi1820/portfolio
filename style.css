@@ -226,3 +226,9 @@ select {
   gap: 2em;  
   margin-bottom: 2em;;              
 }
+.searchBar {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
