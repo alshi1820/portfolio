@@ -196,7 +196,7 @@ select {
   margin-top: 0.25em;
 }
 #projects-pie-plot {
-  max-width: 20em;
+    
   width: clamp(10em, 30vw, 20em);
   flex: 0 1 20em;
 }
@@ -228,6 +228,5 @@ select {
 .container {
   display: flex;
   align-items: center;   
-  gap: 2em; 
-  flex-wrap: wrap;                  
+  gap: 2em;                
 }
