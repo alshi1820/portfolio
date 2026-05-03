@@ -225,8 +225,7 @@ select {
 .container {
   display: flex;
   align-items: center;   
-  gap: 2em;              
-  flex-wrap: wrap;       
+  gap: 2em;                  
 }
 .legend {
   flex: 1;
