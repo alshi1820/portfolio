@@ -190,6 +190,11 @@ select {
   font-size: 0.9em;
   margin-top: 0.25em;
 }
+#projects-pie-plot {
+  width: clamp(10em, 30vw, 20em);
+  height: auto;
+  display: block;
+}
 #projects-pie-plot path {
   transition: 300ms;
   cursor: pointer;
@@ -240,15 +245,13 @@ path {
   cursor: pointer;
 }
 
-.selected:is(path) {
+#projects-pie-plot.selected:is(path) {
   stroke: oklch(60% 45% 0);
   stroke-width: 3px;
   paint-order: stroke;
 }
-.selected {
+.selected:is(path) {
   fill: oklch(60% 45% 0) !important;
-  stroke: white;
-  stroke-width: 2px;
-  paint-order: stroke fill;
+  
 }
 

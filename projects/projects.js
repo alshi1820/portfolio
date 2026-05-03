@@ -12,9 +12,7 @@ let query = '';
 let selectedYear = null;
 
 /* ---------------- PIE SETUP ---------------- */
-let arcGenerator = d3.arc()
-  .innerRadius(0)
-  .outerRadius(50);
+let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
