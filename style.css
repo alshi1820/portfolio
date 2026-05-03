@@ -198,9 +198,7 @@ select {
 #projects-pie-plot {
   max-width: 20em;
   width:100%;
-  margin-block: 2em;
-
-  overflow: visible;
+  flex: 0 1 20em;
 }
 .legend {
   display: grid;
