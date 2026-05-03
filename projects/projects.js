@@ -9,7 +9,7 @@ const searchInput = document.querySelector('.searchBar');
 
 
 let query = '';
-let selectedYear = -1;
+let selectedYear = null;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
@@ -69,22 +69,13 @@ function renderPieChart(projectsGiven) {
 function updateView() {
     let filtered = projects;
 
-  
+    
     filtered = filtered.filter((project) => {
         let values = Object.values(project).join(' ').toLowerCase();
         return values.includes(query.toLowerCase());
     });
-    if (selectedYear !== null) {
-        filtered = filtered.filter(p => p.year === selectedYear);
-
-        filtered,
-        (v) => v.length,
-        (d) => d.year
-    
-
-        let selectedYear = rolled[selectedIndex][0];
-
-        filtered = filtered.filter(p => p.year === selectedYear);
+    if (selectedYear !== null && selectedYear !== -1) {
+        filtered = filtered.filter(p => String(p.year) === String(selectedYear));
     }
 
     renderProjects(filtered, projectsContainer, 'h2');
