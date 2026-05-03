@@ -191,67 +191,71 @@ select {
   margin-top: 0.25em;
 }
 #projects-pie-plot {
-  width: clamp(10em, 30vw, 20em);
+  width: 20em;
+  max-width: 100%;
+  flex-shrink: 1;
   height: auto;
-  display: block;
+  margin-bottom: 3em;
 }
-#projects-pie-plot path {
-  transition: 300ms;
-  cursor: pointer;
-  stroke: none; /* IMPORTANT: prevents weird border artifacts */
-}
+
 .legend {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-  gap: 0.5em;
-  margin-block: 1em;
-  padding: 0;
-  flex: 1;
-  border: 1px solid #ccc;   
-  border-radius: 0.5em;     
-  background: canvas; 
+  grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
+  gap: 1em;
+  padding: 1em;
+  margin: 1em 0 2em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  list-style: none;
+  flex: 1;  
 }
+
+
 .legend li {
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  list-style: none;
+  gap: 0.3em;
+  white-space: nowrap;
+  min-width: 0;
 }
 
-.legend .swatch {
-  display: inline-block;        
+.swatch {
   width: 1em;
-  aspect-ratio: 1 / 1;          
+  aspect-ratio: 1 / 1;
   background-color: var(--color);
-  border-radius: 0.2em;         
+  display: inline-block;
+  border-radius: 50%;
 }
+
 .container {
   display: flex;
-  align-items: center;   
-  gap: 2em;  
-  margin-bottom: 2em;;              
+  align-items: center;
+  gap: 2em;
 }
+
 .searchBar {
+  display: block;
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 1em;
+  margin: 1em 0;
+  padding: 0.5em;
 }
-:has(path:hover) path:not(:hover) {
-  opacity: 0.5;
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
 }
+
 path {
   transition: 300ms;
   cursor: pointer;
 }
 
-#projects-pie-plot.selected:is(path) {
-  stroke: oklch(60% 45% 0);
-  stroke-width: 3px;
-  paint-order: stroke;
-}
-.selected:is(path) {
-  fill: oklch(60% 45% 0) !important;
-  
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
 }
 
