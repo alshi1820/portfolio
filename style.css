@@ -190,6 +190,11 @@ select {
   font-size: 0.9em;
   margin-top: 0.25em;
 }
+#projects-pie-plot path {
+  transition: 300ms;
+  cursor: pointer;
+  stroke: none; /* IMPORTANT: prevents weird border artifacts */
+}
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
@@ -227,21 +232,22 @@ select {
   box-sizing: border-box;
   margin-bottom: 1em;
 }
-#projects-pie-plot path {
+path {
   transition: 300ms;
   cursor: pointer;
-  stroke: none;
 }
-
-
 #projects-pie-plot:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
-
-#projects-pie-plot path.selected {
+.selected:is(path) {
+  stroke: oklch(60% 45% 0);
+  stroke-width: 3px;
+  paint-order: stroke;
+}
+.selected {
+  fill: oklch(60% 45% 0) !important;
   stroke: white;
   stroke-width: 2px;
   paint-order: stroke fill;
 }
-
 
