@@ -197,6 +197,7 @@ select {
 }
 #projects-pie-plot {
   max-width: 20em;
+  width:100%;
   margin-block: 2em;
 
   overflow: visible;
@@ -208,6 +209,9 @@ select {
   margin-block: 1em;
   padding: 0;
   flex: 1;
+  border: 1px solid #ccc;   /* ✅ add */
+  border-radius: 0.5em;     /* ✅ add */
+  background: canvas; 
 }
 .legend li {
   display: flex;
@@ -226,5 +230,6 @@ select {
 .container {
   display: flex;
   align-items: center;   
-  gap: 2em;                  
+  gap: 2em; 
+  flex-wrap: wrap;                  
 }
