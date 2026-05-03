@@ -202,8 +202,8 @@ select {
   margin-block: 1em;
   padding: 0;
   flex: 1;
-  border: 1px solid #ccc;   /* ✅ add */
-  border-radius: 0.5em;     /* ✅ add */
+  border: 1px solid #ccc;   
+  border-radius: 0.5em;     
   background: canvas; 
 }
 .legend li {
