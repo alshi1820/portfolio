@@ -240,9 +240,9 @@ path {
 svg:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
-
-.selected {
-  --color: oklch(60% 45% 0) !important;
+.selected:is(path) {
+  stroke: oklch(60% 45% 0);
+  stroke-width: 3px;
 }
 
 .selected:is(path) {
