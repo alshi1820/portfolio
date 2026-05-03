@@ -32,10 +32,17 @@ arcs.forEach((arc, index) => {
     .attr('fill', colors(index));
 });
 let legend = d3.select('.legend');
+
 data.forEach((d, idx) => {
-  legend
-    .append('li')
-    .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
-    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
+  legend.append('li')
+    .attr('style', `--color:${colors(idx)}`)
+    .attr('class', 'legend-item')   // ✅ add class
+    .html(`
+      <span class="swatch"></span>
+      <span class="label">${d.label}</span>
+      <em>(${d.value})</em>
+    `);
 });
+
+
 
