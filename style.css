@@ -232,3 +232,19 @@ select {
   box-sizing: border-box;
   margin-bottom: 1em;
 }
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
