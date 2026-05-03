@@ -190,11 +190,6 @@ select {
   font-size: 0.9em;
   margin-top: 0.25em;
 }
-#projects-pie-plot {
-
-  width: clamp(10em, 30vw, 20em);
-  flex: 0 1 20em;
-}
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
@@ -232,17 +227,21 @@ select {
   box-sizing: border-box;
   margin-bottom: 1em;
 }
-path {
+#projects-pie-plot path {
   transition: 300ms;
   cursor: pointer;
+  stroke: none;
 }
-svg:has(path:hover) path:not(:hover) {
+
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
-.selected:is(path) {
-  stroke: oklch(60% 45% 0);
-  stroke-width: 3px;
-  paint-order: stroke;
+
+#projects-pie-plot path.selected {
+  stroke: white;
+  stroke-width: 2px;
+  paint-order: stroke fill;
 }
 
 
