@@ -242,7 +242,7 @@ svg:has(path:hover) path:not(:hover) {
 .selected:is(path) {
   stroke: oklch(60% 45% 0);
   stroke-width: 3px;
-  paint-order: stroke fill;
+  paint-order: stroke;
 }
 
 
