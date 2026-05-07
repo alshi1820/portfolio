@@ -283,10 +283,8 @@ label.color-scheme {
   padding: 0.5em;
 }
 
-&:has(path:hover) {
-    path:not(:hover) {
-        opacity: 0.5;
-    }
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
 }
 
 path {
