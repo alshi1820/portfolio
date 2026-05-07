@@ -233,6 +233,12 @@ label.color-scheme {
   color: #666;
 }
 
+
+#projects-pie-plot path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
 #projects-pie-plot {
   width: 20em;
   max-width: 100%;
@@ -283,22 +289,22 @@ label.color-scheme {
   padding: 0.5em;
 }
 
-svg:has(path:hover) path:not(:hover) {
+#projects-pie-plot:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
 
-path {
-  transition: 300ms;
-  cursor: pointer;
-}
+
 
 .selected {
   --color: oklch(60% 45% 0) !important;
 }
 
-path.selected {
+#projects-pie-plot path.selected {
   fill: var(--color) !important;
 }
 path:hover {
   fill: var(--color-accent) !important;
+}
+#projects-pie-plot path.selected:hover {
+  fill: var(--color) !important;
 }
