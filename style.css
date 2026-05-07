@@ -288,10 +288,10 @@ label.color-scheme {
   margin: 1em 0;
   padding: 0.5em;
 }
-
+/* 
 #projects-pie-plot:has(path:hover) path:not(:hover) {
   opacity: 0.5;
-}
+} */
 
 
 
@@ -302,9 +302,9 @@ label.color-scheme {
 #projects-pie-plot path.selected {
   fill: var(--color) !important;
 }
-path:hover {
+/* path:hover {
   fill: var(--color-accent) !important;
-}
+} */
 #projects-pie-plot path.selected:hover {
   fill: var(--color) !important;
 }

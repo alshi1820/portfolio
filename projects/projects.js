@@ -50,6 +50,22 @@ function renderPieChart(projectsGiven) {
     .attr('class', (_, i) =>
         i === selectedIndex ? 'selected' : null
     )
+    .on('mouseenter', function () {
+    d3.select(this)
+        .attr('fill', 'var(--color-accent)');
+    })
+
+    .on('mouseleave', function (event, d) {
+        const isSelected = d.index === selectedIndex;
+
+        d3.select(this)
+        .attr(
+            'fill',
+            isSelected
+            ? 'var(--color)'
+            : color(d.index)
+        );
+    })
     .on('click', (event, d) => {
         const i = d.index;
 
@@ -67,6 +83,11 @@ function renderPieChart(projectsGiven) {
         svg.selectAll('path')
         .attr('class', (_, idx) =>
             idx === selectedIndex ? 'selected' : null
+        )
+        .style('fill', (_, idx) =>
+            idx === selectedIndex
+                ? 'var(--color)'
+                : color(idx)
         );
 
         legend.selectAll('li')
