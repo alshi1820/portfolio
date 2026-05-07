@@ -297,5 +297,8 @@ path {
 }
 
 path.selected {
-  fill: var(--color);
+  fill: var(--color) !important;
+}
+path:hover {
+  fill: var(--color-accent) !important;
 }
