@@ -13,6 +13,7 @@ let pages = [
     { url: 'contact/index.html', title: 'Contact' },
     { url: 'projects/index.html', title: 'Projects' },
     { url: 'resume/index.html', title: 'Resume' },
+    { url: 'meta/index.html',title:'Meta'},
     { url: "https://github.com/alshi1820", title: 'GitHub' }
 ];
 let nav = document.createElement('nav');
