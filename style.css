@@ -308,3 +308,144 @@ label.color-scheme {
 #projects-pie-plot path.selected:hover {
   fill: var(--color) !important;
 }
+#stats {
+  font-family: 'Inter', -apple-system, sans-serif;
+  padding: 1rem 0;
+}
+
+#stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 0;
+}
+
+#stats dt {
+  grid-row: 1;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#stats dd {
+  grid-row: 2;
+  font-size: 32px;
+  font-weight: 300;
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1;
+}
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  display: none;
+}
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+
+  margin: 0;
+  padding: 1em;
+
+  background: canvas;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+dl.info dt {
+  margin: 0;
+  font-weight: 600;
+  color: #666;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+
+  z-index: 1000;
+
+  background: canvas;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+}
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+circle.selected {
+  stroke: black;
+  stroke-width: 2;
+}
+#selection-count {
+  margin: 1em 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#language-breakdown {
+  font-family: ui-monospace, SF Mono, JetBrains Mono, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#language-breakdown dl {
+  gap: 1rem;
+  margin: 0;
+}
+
+#language-breakdown dt {
+  grid-row: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#language-breakdown dd {
+  grid-row: 2;
+  font-weight: 300;
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1;
+  white-space: normal;
+  max-width: 10ch;
+}
