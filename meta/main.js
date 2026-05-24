@@ -105,7 +105,7 @@ function renderCommitInfo(data, commits) {
 
 renderCommitInfo(data, commits);  // existing call
 
-// 👇 PUT IT RIGHT AFTER THIS (recommended)
+
 function updateCommitInfo(data, commits) {
     const dl = d3.select('#stats');
 
