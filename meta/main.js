@@ -43,7 +43,11 @@ return d3
     });
 }
 let data = await loadData();
-let commits = processCommits(data);
+// let commits = processCommits(data);
+let commits = d3.sort(
+    processCommits(data),
+    d => d.datetime
+);
 let activeCommits = commits;
 
 function renderCommitInfo(data, commits) {
@@ -317,18 +321,21 @@ function updateScatterPlot(data, commits) {
 
     const xAxisGroup =
         svg.select('g.x-axis');
-
-    xAxisGroup.selectAll('*').remove();
+    xAxisGroup
+        .transition()
+        .duration(300)
+        .call(xAxis);
+    // xAxisGroup.selectAll('*').remove();
 
     xAxisGroup.call(xAxis);
 
     const dots = svg.select('g.dots');
 
-    // const sortedCommits = d3.sort(
-    //     commits,
-    //     (d) => -d.totalLines
-    // );
-    const sortedCommits = commits;
+    const sortedCommits = d3.sort(
+        commits,
+        (d) => -d.totalLines
+    );
+    // const sortedCommits = commits;
     dots
         .selectAll('circle')
         .data(sortedCommits,(d)=>d.id)
@@ -626,7 +633,10 @@ scroller
     })
     .onStepEnter(onStepEnter);
 function updateFromScroll(commitDate) {
-    const filtered = commits.filter(d => d.datetime <= commitDate);
-    xScale.domain(d3.extent(commits, d => d.datetime)); // full dataset ONLY
-    updateView(filtered);
+    commitMaxTime = commitDate;
+
+    filteredCommits = commits.filter(
+        d => d.datetime <= commitMaxTime
+    );
+    updateView(filteredCommits);
 }

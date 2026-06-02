@@ -510,3 +510,10 @@ dd {
   bottom: auto;
   height: 50vh;
 }
+circle {
+  transition:
+    cx 300ms,
+    cy 300ms,
+    r 300ms,
+    opacity 300ms;
+}
